@@ -1,0 +1,172 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+}
+
+header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    background-color: #343a40;
+    color: white;
+    z-index: 1;
+}
+
+/* .nav-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+}
+
+.nav-bar-logo a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.nav-bar-link a {
+    color: white;
+    text-decoration: none;
+    margin-left: 2rem;
+    font-size: 1rem;
+}
+
+.nav-bar-link a:hover {
+    text-decoration: underline;
+} */
+
+.nav-bar {
+    position: fixed;
+    display: flex;
+    align-items: center;
+    padding: 8px 0;
+    color: white;
+    background-color: #212529; 
+    height: 2.5rem;
+    width: 100%;
+}
+
+.nav-bar-link {
+    /* margin: 0 0 0 10px; */
+    display: block;
+    font-size: 16px;
+}
+a {
+    text-decoration: none;
+    color: white;
+    
+}
+
+.nav-bar-logo {
+    font-size: 20px;
+    margin: 0 1rem 0 0;
+    padding: 5px 0;
+    text-decoration: none;
+    
+}
+
+.nav-bar-link a {
+    padding: 0 5px;
+    color: #FFFFFF8C;
+}
+
+.nav-bar-link a:hover {
+    color: #ffffffb6;
+}
+
+.content-page {
+    /* margin-top: 4.5rem;   */
+    margin-top: 2.5rem;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: calc(100vh - 4.5rem);
+}
+
+.input-related {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin: 2rem 0;
+}
+
+.input {
+    margin-bottom: 1rem;
+}
+
+.input label {
+    margin-right: 1rem;
+}
+
+.input input {
+    width: 20rem;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 0.25rem;
+}
+
+.btn-format {
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 0.25rem;
+    cursor: pointer;
+}
+
+.blue-type {
+    background-color: #007bff;
+    color: white;
+}
+
+.blue-type:hover {
+    background-color: #0056b3;
+}
+
+.red {
+    background-color: red;
+    color: white;
+}
+
+.red:hover {
+    background-color: darkred;
+}
+
+.yellow {
+    background-color: yellow;
+    color: black;
+}
+
+.green {
+    background-color: green;
+    color: white;
+}
+
+.green:hover {
+    background-color: darkgreen;
+}
+
+.svg-container {
+    width: 100%;
+    max-width: 70%;
+    height: 500px;
+    height: calc(100vh - 4.5rem);
+    max-height: 70%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: white;
+    border: 1px solid black;
+    border-radius: 0.5rem;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .input input {
+        width: 100%;
+    }
+}

@@ -1,0 +1,254 @@
+/* Resetting margins and paddings */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Navbar styling */
+.nav-bar {
+    position: fixed;
+    display: flex;
+    align-items: center;
+    padding: 8px 0;
+    color: white;
+    background-color: #212529;
+    height: 2.5rem;
+    width: 100%;
+}
+
+.nav-bar-link a {
+    text-decoration: none;
+    color: #ffffffb6;
+    padding: 0 10px;
+}
+
+.nav-bar-link a:hover {
+    color: white;
+}
+
+.nav-bar-logo {
+    font-size: 20px;
+    margin-right: 1rem;
+    padding: 5px 0;
+}
+
+.nav-bar-logo a {
+    color: white;
+}
+
+.nav-bar-link {
+    width: 80%;
+}
+
+.nav-bar-menu{
+    position: absolute;
+    right: 1rem;
+    opacity: 0;
+}
+
+.nav-bar-menu span {
+    opacity:0.5;
+}
+
+.nav-bar-menu span:hover {
+    cursor: pointer;
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+.nav-bar-link a,
+.footer-content a,
+.side-menu a {
+    padding: 0 5px;
+    color: #FFFFFF8C;
+}
+
+.nav-bar-link a:hover,
+.side-menu a:hover,
+.footer-content a:hover {
+    color: #ffffffb6;
+}
+
+@media (max-width: 951px) {
+    .nav-bar-link a {
+        display: none;
+    }
+}
+
+/* Main content styling */
+.home-page {
+    display: flex;
+    justify-content: center;
+}
+
+.home-container {
+    height: 100vh;
+    width: 100vw;
+    margin: 0 6rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+}
+
+.home-content {
+    text-align: center;
+}
+
+.home-title {
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.home-description {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+.home-button {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.home-button a {
+    background-color: #0d6efd;
+    color: white;
+    padding: 1rem 2rem;
+    text-decoration: none;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    margin: 0.5rem;
+    transition: background-color 0.3s ease;
+}
+
+.home-button a:hover {
+    background-color: #0b5ed7;
+    cursor: pointer;
+}
+
+/* Footer styling */
+footer {
+    background-color: #212529;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+}
+
+.footer-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.side-menu {
+    position: fixed; /* Positions the menu on the right side of the screen */
+    top: 0;
+    right: 0;
+    width: 300px;
+    height: 100vh; /* Occupies full viewport height (vh) */
+    background-color: #212529;
+    color: white;
+    transition: right 0.3s ease-in-out; /* Adds a smooth transition effect */
+    opacity: 0;
+}
+
+.side-menu.active {
+    right: 0; /* Shows the menu by setting it on-screen */
+}
+
+.side-menu ul {
+    list-style: none;
+    width: 100%;
+    padding: 0;
+    margin: 2rem 1.5rem;
+}
+
+.side-menu h2 {
+    margin-top: 0.75rem;
+    text-decoration: none;
+    font-weight: normal;
+    margin-left: 1rem;
+    font-size: 25px;
+}
+
+.side-menu li {
+    margin: 0.5rem 0;
+    padding: 1rem;
+}
+
+.side-menu span {
+    position: absolute;
+    right: 1.5rem;
+    opacity: 0.5;
+}
+
+.side-menu span:hover {
+    cursor: pointer;
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+a {
+    text-decoration: none;
+} 
+
+
+.side-menu {
+    position: fixed;
+    top: 0;
+    right: -350px; /* Initially hidden off-screen */
+    width: 300px;
+    height: 100vh;
+    background-color: #212529;
+    color: white;
+    transition: right 0.3s ease-in-out;
+    padding: 20px;
+}
+
+.side-menu.active {
+    right: 0; /* Bring on-screen when active */
+}
+
+@media (max-width: 951px) {
+    .nav-bar-link a {
+        display: none;
+    }
+
+    .nav-bar-menu {
+        opacity: 1
+    }
+
+    .side-menu {
+        opacity: 1
+    }
+
+}
+
+@media (max-width: 750px) {
+    .home-container {
+        margin: 0;
+    }
+}
+
+@media (max-width: 951px) {
+    .nav-bar-link a {
+        display: none;
+    }
+
+    .nav-bar-menu {
+        opacity: 1;
+    }
+
+    .side-menu {
+        opacity: 1;
+    }
+}
+
+
+
+
