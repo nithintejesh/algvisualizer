@@ -67,9 +67,12 @@
                     <option value="bubbleSort">Bubble Sort</option>
                     <option value="quickSort">Quick Sort</option>
                     <option value="mergeSort">Merge Sort</option>
+                    <option value="selectionSort">Selection Sort</option>
+                    <option value="insertionSort">Insertion Sort</option>
+                    <option value="countingSort">Counting Sort</option>
                 </select>
                 <button id="start-btn" class="btn-format red">Start</button>
-                <button id="pause-btn" class="btn-format yellow">Pause</button>
+                <!-- <button id="pause-btn" class="btn-format yellow">Pause</button> -->
                 <button id="reset-btn" class="btn-format green">Reset</button>
                 <label for="speed">Speed: </label>
                 <input id="speed" name="speed" type="range" min="100" max="1000" step="100">
@@ -79,7 +82,7 @@
             <svg id="visualization"></svg>
         </div>
     </main>
-    <script type="module" src="./scripts/app.js"></script>
+    <script type="module" src="./scripts/sort.js"></script>
     <script src="./scripts/menu.js"></script>
 </body>
 </html>

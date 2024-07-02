@@ -1,6 +1,3 @@
-// js/searches/linearSearch.js
-
-// Linear Search algorithm with animation
 export async function performLinearSearch(data, searchValue, animateSearching, updateVisualization) {
     let animations = [];
 

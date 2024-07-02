@@ -70,12 +70,6 @@ body, html {
     color: #ffffffb6;
 }
 
-@media (max-width: 951px) {
-    .nav-bar-link a {
-        display: none;
-    }
-}
-
 /* Main content styling */
 .home-page {
     display: flex;
@@ -150,10 +144,10 @@ footer {
     top: 0;
     right: 0;
     width: 300px;
-    height: 100vh; /* Occupies full viewport height (vh) */
+    height: 100vh;
     background-color: #212529;
     color: white;
-    transition: right 0.3s ease-in-out; /* Adds a smooth transition effect */
+    transition: right 0.3s ease-in-out;
     opacity: 0;
 }
 
@@ -232,20 +226,6 @@ a {
 @media (max-width: 750px) {
     .home-container {
         margin: 0;
-    }
-}
-
-@media (max-width: 951px) {
-    .nav-bar-link a {
-        display: none;
-    }
-
-    .nav-bar-menu {
-        opacity: 1;
-    }
-
-    .side-menu {
-        opacity: 1;
     }
 }
 

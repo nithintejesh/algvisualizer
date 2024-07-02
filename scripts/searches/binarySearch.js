@@ -1,6 +1,3 @@
-// js/searches/binarySearch.js
-
-// Binary Search algorithm with animation
 export async function performBinarySearch(data, searchValue, animateSearching, updateVisualization) {
     let animations = [];
     let left = 0;

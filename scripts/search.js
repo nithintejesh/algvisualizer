@@ -1,9 +1,7 @@
-
-
 import { performLinearSearch } from './searches/linearSearch.js';
 import { performBinarySearch } from './searches/binarySearch.js';
 
-let dataArray = []; // Global variable to store data array
+let dataArray = [];
 let animationSpeed = 500; // Initial animation speed (milliseconds)
 
 // D3.js setup for visualization
@@ -53,6 +51,12 @@ function updateVisualization(data) {
 
 // Function to perform searching animation based on selected algorithm
 async function performSearch(algorithm, searchValue) {
+    // Check if search value is provided
+    if (!Number.isInteger(searchValue)) {
+        console.error('Search value is required.');
+        return;
+    }
+
     switch (algorithm) {
         case 'linearSearch':
             await performLinearSearch(dataArray, searchValue, animateSearching, updateVisualization);
@@ -65,6 +69,7 @@ async function performSearch(algorithm, searchValue) {
             return;
     }
 }
+
 
 // Function to animate searching process
 async function animateSearching(animations) {

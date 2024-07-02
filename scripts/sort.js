@@ -2,8 +2,12 @@ import { performBubbleSort } from './algorithms/bubbleSort.js';
 import { performQuickSort, partition } from './algorithms/quickSort.js';
 import { performMergeSort } from './algorithms/mergeSort.js';
 import { merge } from './algorithms/mergeSort.js';
+import { performSelectionSort } from './algorithms/selectionSort.js';
+import { performInsertionSort } from './algorithms/insertionSort.js';
+import { performCountingSort } from './algorithms/countingSort.js';
 
-let dataArray = []; // Global variable to store data array
+
+let dataArray = [];
 let animationSpeed = 500; // Initial animation speed (milliseconds)
 
 // D3.js setup for visualization
@@ -61,6 +65,15 @@ async function performSort(algorithm) {
             break;
         case 'mergeSort':
             await performMergeSort(dataArray, merge, animateSorting);
+            break;
+        case 'selectionSort':
+            await performSelectionSort(dataArray, updateVisualization, animateSorting);
+            break;
+        case 'insertionSort':
+            await performInsertionSort(dataArray, updateVisualization, animateSorting);
+            break;
+        case 'countingSort':
+            await performCountingSort(dataArray, updateVisualization, animateSorting);
             break;
         default:
             console.error('Unsupported algorithm:', algorithm);
