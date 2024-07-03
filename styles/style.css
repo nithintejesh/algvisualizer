@@ -196,7 +196,8 @@ a {
     position: fixed;
     top: 0;
     right: -350px; /* Initially hidden off-screen */
-    width: 300px;
+    /* width: 300px; */
+    width: 250px;
     height: 100vh;
     background-color: #212529;
     color: white;
