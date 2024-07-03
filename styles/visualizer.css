@@ -292,3 +292,10 @@ a {
         text-align: center;
     }
 }
+
+@media (min-height: 690px) and (max-heigth: 696px) {
+    .input-related {
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+    }
+}
