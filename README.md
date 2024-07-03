@@ -35,10 +35,10 @@ Then open `index.html` in the browser. That's it
 * D3.js for data visualization
 
 
-### In Progress:
+### Future plans:
 
-* Adding more sorting and searching algos
 * Implement Pause button functionality
+* Visualize Linkedlist, graphs
 * Refactor Code to Eliminate Redundancy Post Learning React
 * And More...
 
