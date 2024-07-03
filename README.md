@@ -7,8 +7,11 @@ Interactive Algorithm Visualizer using HTML, CSS, JavaScript, and D3.js. Visuali
 
 ### Sorting
 - Bubble Sort
+- Selection Sort
+- Insertion Sort
 - Merge Sort
 - Quick Sort
+- Counting Sort
 
 ### Searching
 - Linear Search
