@@ -59,6 +59,7 @@ a {
     height: calc(100vh - 4.5rem);
 }
 
+/*Work on this */
 /* .input-related {
     display: flex;
     flex-direction: column;
@@ -143,6 +144,8 @@ a {
 .svg-container {
     width: 100%;
     max-width: 70%;
+    /* height: 500px;
+    height: calc(100vh - 4.5rem); */
     height: 500px;
     max-height: 70%;
     display: flex;
