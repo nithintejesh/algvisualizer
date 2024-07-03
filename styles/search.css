@@ -1,0 +1,67 @@
+.input-related .controls-action {
+    display: flex; 
+    flex-direction: row;
+    align-items: center; 
+    margin-top: 1rem;
+}
+
+.input-related .controls-action label {
+    margin-right: 1rem; /* Add some spacing between label and input */
+}
+
+.input-related .controls-action input {
+    width: 100%; /* Take up remaining space */
+    max-width: 20rem; /* Limit maximum width */
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 0.25rem;
+}
+
+.input-related .controls-action .controls-button {
+    display: flex;
+}
+
+
+.input-related .controls-action button {
+    margin-left: 1rem;
+}
+
+@media (max-width: 768px) {
+    .input-related .controls-action {
+        flex-direction: column;
+        align-items: center;
+        margin-top: 1rem;
+    }
+
+    .input-related .controls-action input {
+        width: 100%; /* Full width input on smaller screens */
+        max-width: 25rem;
+        margin-bottom: 1rem;
+    }
+
+    .input-related .controls-action button {
+        margin-left: 0; /* Reset margin for button on smaller screens */
+    }
+
+    .controls-action .controls-button button {
+        margin-right: 0.5rem;
+    }
+
+    
+}
+
+@media (max-width: 575px) {
+    .input-related .controls-action {
+        flex-direction: column; /* Stack items vertically on smaller screens */
+        align-items: center;
+        margin-top: 1rem;
+    }
+
+    .input-related .controls-action input {
+        width: calc(100% - 1rem); /* Adjust input width to fit smaller screens */
+    }
+
+    .input-related .controls-action button {
+        margin-left: 0; /* Reset margin for button on smaller screens */
+    }
+}

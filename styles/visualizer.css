@@ -59,37 +59,16 @@ a {
     height: calc(100vh - 4.5rem);
 }
 
-/*Work on this */
-/* .input-related {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    margin: 2rem 0;
-} 
-    
-.input {
-    margin-bottom: 1rem;
-}*/
-
 .input-related {
     margin-right: 1rem;
 }
-
-/* .input {
-    margin-bottom: 1rem;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    width: 100%;
-    justify-content: center;
-} */
 
 .input label {
     margin-right: 1rem;
 }
 
-.input input {
+.input input,
+.controls-action #search-value {
     width: 20rem;
     padding: 0.5rem;
     border: 1px solid #ccc;
@@ -102,7 +81,7 @@ a {
     border: none;
     border-radius: 0.25rem;
     cursor: pointer;
-    width: auto;  /* Ensure buttons don't take full width */
+    width: auto;
 }
 
 .blue-type {
@@ -117,7 +96,6 @@ a {
 .red {
     background-color: red;
     color: white;
-    /* margin-top: 0.75em; */
 }
 
 .red:hover {
@@ -145,11 +123,10 @@ a {
 .range-speed {
     margin: 0.5em 0 1em 0;
 }
+
 .svg-container {
     width: 100%;
     max-width: 70%;
-    /* height: 500px;
-    height: calc(100vh - 4.5rem); */
     height: 500px;
     max-height: 70%;
     display: flex;
@@ -172,6 +149,11 @@ a {
     border-radius: 0.25rem;
     cursor: pointer;
     border: 1px solid #ccc;
+}
+
+.controls-action {
+    display: flex;
+    flex-direction: row;
 }
 
 @media (max-width: 768px) {
@@ -197,7 +179,7 @@ a {
     .btn-format {
         margin-left: 0;
         margin-top: 1rem;
-        width: auto; 
+        width: auto;
     }
 
     .content-page {
@@ -270,7 +252,7 @@ a {
         margin-left: 0;
         margin-top: 0.25rem;
         padding: 0.25rem 0.5rem;
-        width: auto;  
+        width: auto;
     }
 
     #algorithm,
@@ -288,7 +270,7 @@ a {
 
     .input,
     .btn-format {
-        width: auto; /* button doesn't take full width */
+        width: auto;
         text-align: center;
     }
 }
