@@ -59,22 +59,26 @@ a {
     height: calc(100vh - 4.5rem);
 }
 
-.input-related {
+/* .input-related {
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 100%;
     margin: 2rem 0;
+} */
+
+.input-related {
+    margin-right: 1rem;
 }
 
-.input {
+/* .input {
     margin-bottom: 1rem;
     display: flex;
     flex-direction: row;
     align-items: center;
     width: 100%;
     justify-content: center;
-}
+} */
 
 .input label {
     margin-right: 1rem;
@@ -108,6 +112,7 @@ a {
 .red {
     background-color: red;
     color: white;
+    /* margin-top: 0.75em; */
 }
 
 .red:hover {
@@ -128,6 +133,13 @@ a {
     background-color: darkgreen;
 }
 
+.controls {
+    margin-top: 0.75em;
+}
+
+.range-speed {
+    margin: 0.5em 0 1em 0;
+}
 .svg-container {
     width: 100%;
     max-width: 70%;
@@ -178,7 +190,7 @@ a {
     .btn-format {
         margin-left: 0;
         margin-top: 1rem;
-        width: auto; /* Ensure buttons don't take full width */
+        width: auto; 
     }
 
     .content-page {
@@ -241,7 +253,6 @@ a {
 
     .input-related {
         margin: 0.5rem 0;
-         
     }
 
     .input label {
@@ -252,7 +263,7 @@ a {
         margin-left: 0;
         margin-top: 0.25rem;
         padding: 0.25rem 0.5rem;
-        width: auto;  /* Ensure buttons don't take full width */
+        width: auto;  
     }
 
     #algorithm,
@@ -265,13 +276,12 @@ a {
         flex-direction: column;
         align-items: center;
         width: 100%;
-        /* margin: 1rem 0; */
-        margin: 2.5rem 0 2rem; 
+        margin: 1rem 0;
     }
 
     .input,
     .btn-format {
-        width: auto; /* Ensure buttons don't take full width */
+        width: auto; /* button doesn't take full width */
         text-align: center;
     }
 }
