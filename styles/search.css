@@ -1,3 +1,7 @@
+.nav-bar-link #search-page {
+    color: #ffffffcf;
+}
+
 .input-related .controls-action {
     display: flex; 
     flex-direction: row;

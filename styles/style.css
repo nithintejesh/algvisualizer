@@ -67,7 +67,11 @@ body, html {
 .nav-bar-link a:hover,
 .side-menu a:hover,
 .footer-content a:hover {
-    color: #ffffffb6;
+    color: #ffffffcf;
+}
+
+.nav-bar-link #home-page {
+    color: #ffffffcf;
 }
 
 /* Main content styling */
