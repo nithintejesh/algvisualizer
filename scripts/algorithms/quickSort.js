@@ -1,5 +1,7 @@
-// Function to perform Quick Sort
+let reset = false;
+
 export async function performQuickSort(dataArray, left, right, animateSorting, partition) {
+    if (reset) return; // Stop sorting if reset is triggered
     if (left < right) {
         let partitionIndex = await partition(dataArray, left, right, animateSorting);
 
@@ -15,6 +17,8 @@ export async function partition(dataArray, left, right, animateSorting) {
     let animations = [];
 
     for (let j = left; j < right; j++) {
+        if (reset) return; // Stop partition if reset is triggered
+
         // Comparing elements at index j and pivot (right)
         animations.push({ type: 'compare', indices: [j, right] });
 
@@ -36,4 +40,9 @@ export async function partition(dataArray, left, right, animateSorting) {
 
     await animateSorting(animations);
     return i + 1;
+}
+
+// Function to reset the quick sort
+export function resetQuickSort(value) {
+    reset = value;
 }

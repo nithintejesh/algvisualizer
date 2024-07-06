@@ -1,9 +1,9 @@
 import { performLinearSearch } from './searches/linearSearch.js';
-import { performBinarySearch } from './searches/binarySearch.js';
+import { performBinarySearch, resetBinarySearch } from './searches/binarySearch.js';
 
 let dataArray = [];
 let animationSpeed = 500; // Initial animation speed (milliseconds)
-
+let reset = false;
 // D3.js setup for visualization
 const svg = d3.select('#visualization')
     .attr('width', '100%')
@@ -11,7 +11,6 @@ const svg = d3.select('#visualization')
     const margin = { top: 20, right: 20, bottom: 30, left: 40 };
 const sideMargin = 20; // Side margin for left and right
 
-// Function to update visualization based on data
 function updateVisualization(data) {
     const containerWidth = document.querySelector('.svg-container').offsetWidth;
     const containerHeight = document.querySelector('.svg-container').offsetHeight;
@@ -20,14 +19,15 @@ function updateVisualization(data) {
     const maxDataValue = Math.max(...data);
     const barHeightFactor = (containerHeight - margin.top - margin.bottom) / maxDataValue; // Adjusted for top and bottom margin
 
-    // Calculate total width occupied by bars
+    // Calculate total width occupied by bars including side margins
     const totalBarWidth = data.length * barWidth;
 
-    // Calculate starting position to center bars if less than container width
+    // Calculate starting position to include side margins
     let startX = Math.max((containerWidth - totalBarWidth) / 2, sideMargin);
 
-    // Remove existing bars
+    // Remove existing bars and text
     svg.selectAll('rect').remove();
+    svg.selectAll('text').remove();
 
     // Create new bars
     svg.selectAll('rect')
@@ -36,10 +36,10 @@ function updateVisualization(data) {
         .append('rect')
         .attr('x', (d, i) => {
             if (totalBarWidth + 2 * sideMargin < containerWidth) {
-                // Center bars when less than container width
+                // Center bars when less than container width including side margins
                 return startX + i * barWidth;
             } else {
-                // Start from the beginning as bars exceed container width
+                // Start from the beginning as bars exceed container width including side margins
                 return sideMargin + i * barWidth;
             }
         })
@@ -47,10 +47,32 @@ function updateVisualization(data) {
         .attr('width', barWidth - 1)
         .attr('height', d => d * barHeightFactor)
         .attr('fill', 'steelblue');
+
+    // Create new text labels
+    svg.selectAll('text')
+        .data(data)
+        .enter()
+        .append('text')
+        .text(d => d)
+        .attr('x', (d, i) => {
+            if (totalBarWidth + 2 * sideMargin < containerWidth) {
+                // Center text when less than container width including side margins
+                return startX + i * barWidth + (barWidth - 1) / 2;
+            } else {
+                // Start from the beginning as bars exceed container width including side margins
+                return sideMargin + i * barWidth + (barWidth - 1) / 2;
+            }
+        })
+        .attr('y', d => containerHeight - margin.bottom - d * barHeightFactor - 5) // Adjusted for bottom margin and scaling
+        .style('text-anchor', 'middle')
+        .style('fill', 'black')
+        .style('font-size', `${Math.min((containerWidth - 2 * sideMargin) / data.length / 3, 12)}px`)
+        .style('font-family', 'sans-serif');
 }
 
 // Function to perform searching animation based on selected algorithm
 async function performSearch(algorithm, searchValue) {
+    reset = false;
     // Check if search value is provided
     if (!Number.isInteger(searchValue)) {
         console.error('Search value is required.');
@@ -77,7 +99,10 @@ async function animateSearching(animations) {
 
     for (let i = 0; i < animations.length; i++) {
         const { type, indices, newData } = animations[i];
-
+        if(reset) {
+            // reset = false;
+            return;
+        }
         switch (type) {
             case 'compare':
                 highlightElements(indices, 'compare');
@@ -125,6 +150,10 @@ document.getElementById('visualize-btn').addEventListener('click', () => {
 document.getElementById('start-btn').addEventListener('click', () => {
     let algorithm = document.getElementById('algorithm').value;
     let searchValue = parseInt(document.getElementById('search-value').value, 10);
+    if( algorithm === "binarySearch"){
+        reset = false;
+        resetBinarySearch(reset);
+    }
     performSearch(algorithm, searchValue);
 });
 
@@ -132,6 +161,8 @@ document.getElementById('reset-btn').addEventListener('click', () => {
     // Reset data and visualization
     updateVisualization([]);
     dataArray = [];
+    reset = true;
+    resetBinarySearch(reset);
 });
 
 document.getElementById('speed').addEventListener('input', () => {

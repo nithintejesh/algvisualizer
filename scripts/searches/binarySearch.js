@@ -1,8 +1,11 @@
+let reset = false;
 export async function performBinarySearch(data, searchValue, animateSearching, updateVisualization) {
     let animations = [];
     let left = 0;
     let right = data.length - 1;
-
+    if(reset){
+        return;
+    }
     data.sort((a, b) => a - b); // Ensure the array is sorted for binary search
     updateVisualization(data); // Update the visualization with the sorted array
 
@@ -22,3 +25,5 @@ export async function performBinarySearch(data, searchValue, animateSearching, u
 
     await animateSearching(animations);
 }
+
+export let resetBinarySearch = value => reset = value;

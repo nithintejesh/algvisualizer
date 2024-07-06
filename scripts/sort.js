@@ -1,14 +1,15 @@
 import { performBubbleSort } from './algorithms/bubbleSort.js';
 import { performQuickSort, partition } from './algorithms/quickSort.js';
+import { resetQuickSort } from './algorithms/quickSort.js';
 import { performMergeSort } from './algorithms/mergeSort.js';
 import { merge } from './algorithms/mergeSort.js';
 import { performSelectionSort } from './algorithms/selectionSort.js';
 import { performInsertionSort } from './algorithms/insertionSort.js';
 import { performCountingSort } from './algorithms/countingSort.js';
 
-
 let dataArray = [];
 let animationSpeed = 500; // Initial animation speed (milliseconds)
+let reset = false;
 
 // D3.js setup for visualization
 const svg = d3.select('#visualization')
@@ -27,12 +28,13 @@ function updateVisualization(data) {
 
     // Calculate total width occupied by bars including side margins
     const totalBarWidth = data.length * barWidth;
-    
+
     // Calculate starting position to include side margins
     let startX = Math.max((containerWidth - totalBarWidth) / 2, sideMargin);
 
-    // Remove existing bars
+    // Remove existing bars and text
     svg.selectAll('rect').remove();
+    svg.selectAll('text').remove();
 
     // Create new bars
     svg.selectAll('rect')
@@ -52,10 +54,33 @@ function updateVisualization(data) {
         .attr('width', barWidth - 1)
         .attr('height', d => d * barHeightFactor)
         .attr('fill', 'steelblue');
+
+    // Create new text labels
+    svg.selectAll('text')
+        .data(data)
+        .enter()
+        .append('text')
+        .text(d => d)
+        .attr('x', (d, i) => {
+            if (totalBarWidth + 2 * sideMargin < containerWidth) {
+                // Center text when less than container width including side margins
+                return startX + i * barWidth + (barWidth - 1) / 2;
+            } else {
+                // Start from the beginning as bars exceed container width including side margins
+                return sideMargin + i * barWidth + (barWidth - 1) / 2;
+            }
+        })
+        .attr('y', d => containerHeight - margin.bottom - d * barHeightFactor - 5) // Adjusted for bottom margin and scaling
+        .style('text-anchor', 'middle')
+        .style('fill', 'black')
+        .style('font-size', `${Math.min((containerWidth - 2 * sideMargin) / data.length / 3, 12)}px`)
+        .style('font-family', 'sans-serif');
 }
 
 // Function to perform sorting animation based on selected algorithm
 async function performSort(algorithm) {
+    reset = false; // Reset the reset state before starting a new sort
+
     switch (algorithm) {
         case 'bubbleSort':
             await performBubbleSort(dataArray, updateVisualization, animateSorting);
@@ -86,6 +111,10 @@ async function animateSorting(animations) {
     const delay = ms => new Promise(resolve => setTimeout(resolve, ms));
 
     for (let i = 0; i < animations.length; i++) {
+        if (reset) {
+            break; // Stop animation if reset is triggered
+        }
+
         const { type, indices, newData } = animations[i];
 
         switch (type) {
@@ -133,20 +162,25 @@ document.getElementById('visualize-btn').addEventListener('click', () => {
 
 document.getElementById('start-btn').addEventListener('click', () => {
     let algorithm = document.getElementById('algorithm').value;
+    
+    if(algorithm === "quickSort"){
+        reset = false;
+        console.log(reset);
+        resetQuickSort(reset); 
+    }
     performSort(algorithm);
 });
 
 document.getElementById('reset-btn').addEventListener('click', () => {
-    // Reset data and visualization
+    reset = true;
+    resetQuickSort(reset);
     updateVisualization([]);
     dataArray = [];
 });
 
 document.getElementById('speed').addEventListener('input', () => {
-    // Adjust animation speed based on range input value
     animationSpeed = 1100 - parseInt(document.getElementById('speed').value);
 });
 
-// Add event listener for window resize
 window.addEventListener('resize', handleResize);
 
