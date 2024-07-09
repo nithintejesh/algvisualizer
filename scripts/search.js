@@ -67,7 +67,7 @@ function updateVisualization(data) {
         .style('text-anchor', 'middle')
         .style('fill', 'black')
         .style('font-size', `${Math.min((containerWidth - 2 * sideMargin) / data.length / 3, 12)}px`)
-        .style('font-family', 'sans-serif');
+        .style('font-family', "Arial, Helvetica, sans-serif");
 }
 
 // Function to perform searching animation based on selected algorithm
