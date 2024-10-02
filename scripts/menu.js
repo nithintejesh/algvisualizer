@@ -5,3 +5,5 @@ document.getElementById('menu-button').addEventListener('click', function() {
 document.getElementById('close-button').addEventListener('click', function() {
     document.getElementById('side-menu').classList.remove('active');
 });
+
+document.getElementById('year').textContent = new Date().getFullYear();
